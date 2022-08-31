@@ -7,23 +7,51 @@
   <form [formGroup]="loanForm">
 
     <mat-form-field appearance="outline">
-        <mat-label>Typical Exclusion</mat-label>
+      <mat-label>Typical Exclusion</mat-label>
 
-        <mat-select formControlName="typicalExclusion" placeholder="Typical Exclusion">
-            <mat-option value="siren">SIREN</mat-option>
-            <mat-option value="loanid">LOAN ID</mat-option>
-            <mat-option value="fcn">FCN</mat-option>
-        </mat-select>
+      <mat-select formControlName="typicalExclusion" placeholder="Typical Exclusion">
+        <mat-option value="siren">SIREN</mat-option>
+        <mat-option value="loanid">LOAN ID</mat-option>
+        <mat-option value="fcn">FCN</mat-option>
+      </mat-select>
     </mat-form-field>
 
-    </form>
+  </form>
 
-    
+  <section class="example-container mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="loans">
 
- <div mat-dialog-action [align]="'end'">
+      <!-- Name Column -->
+      <ng-container matColumnDef="creance">
+        <th mat-header-cell *matHeaderCellDef> Creance </th>
+        <td mat-cell *matCellDef="let element"> {{element.creance}} </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="dateMaj">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateMaj}} </td>
+      </ng-container>
+
+
+<!-- 
+      <ng-container matColumnDef="star">
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon>more_vert</mat-icon>
+        </td>
+      </ng-container> -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+
+
+  <div mat-dialog-action [align]="'end'">
     <button mat-raised-button color="warn" mat-dialog-close>Exit</button>
-    <button style="margin-left:8px" mat-raised-button color="primary" (click)="cancel()" >Cancel</button>
-    <button style="margin-left:8px" mat-raised-button  color="success" (click)="export()" >Export</button>
+    <button style="margin-left:8px" mat-raised-button color="primary" (click)="cancel()">Cancel</button>
+    <button style="margin-left:8px" mat-raised-button color="success" (click)="export()">Export</button>
 
   </div>
 </mat-card>

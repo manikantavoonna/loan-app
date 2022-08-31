@@ -1,29 +1,29 @@
 <p mat-dialog-title>Validate Loan ID</p>
 <mat-card>
-<!-- <div mat-dialog-content> -->
-<form [formGroup]="loanForm">
+  <!-- <div mat-dialog-content> -->
+  <form [formGroup]="loanForm">
 
     <mat-form-field appearance="outline">
-        <mat-label>Typical Exclusion</mat-label>
+      <mat-label>Typical Exclusion</mat-label>
 
-        <mat-select formControlName="typicalExclusion" placeholder="Typical Exclusion">
-            <mat-option value="siren">SIREN</mat-option>
-            <mat-option value="loanid">LOAN ID</mat-option>
-            <mat-option value="fcn">FCN</mat-option>
-        </mat-select>
+      <mat-select formControlName="typicalExclusion" placeholder="Typical Exclusion">
+        <mat-option value="siren">SIREN</mat-option>
+        <mat-option value="loanid">LOAN ID</mat-option>
+        <mat-option value="fcn">FCN</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Loan ID</mat-label>
+      <input formControlName="loanId" matInput placeholder="Placeholder">
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Loan ID</mat-label>
-        <input formControlName="loanId" matInput placeholder="Placeholder">
-      </mat-form-field>
-
-</form>
-<!-- 
+  </form>
+  <!-- 
     </div> -->
-      <div mat-dialog-action [align]="'end'">
-        <button mat-raised-button color="warn" mat-dialog-close>Exit</button>
-        <button style="margin-left:8px"  mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-        <button style="margin-left:8px" mat-raised-button color="primary" (click)="validate()" >Validate</button>
-      </div>
-    </mat-card>
+  <div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Exit</button>
+    <button style="margin-left:8px" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button style="margin-left:8px" mat-raised-button color="primary" (click)="validate()">Validate</button>
+  </div>
+</mat-card>
